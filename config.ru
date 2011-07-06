@@ -1,2 +1,2 @@
-require './hobbes.rb'
+require './hobbes'
 run Sinatra::Application
