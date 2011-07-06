@@ -41,7 +41,7 @@ end
 def get_item_shipping_options(doc)
   shipping_options = Array.new
   doc.css('#shippingOptions li').each do |shipping_option|
-    shipping_options << shipping_option.content
+    shipping_options << shipping_option.content.sub('+ ','')
   end
 
   shipping_options
