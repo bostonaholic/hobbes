@@ -7,10 +7,7 @@ get '/', :provides => 'json' do
   items = Array.new
   %w[www wine shirt sellout kids].each do |subdomain|
     doc = scrape_woot(subdomain)
-    items << {:subdomain => subdomain,
-              :name => get_item_name(doc),
-              :price => get_item_price(doc),
-              :shipping_options => get_item_shipping_options(doc)}
+    items << build_item(subdomain, doc)
   end
 
   items.to_json
@@ -18,12 +15,14 @@ end
 
 get '/:subdomain', :provides => 'json' do |subdomain|
   doc = scrape_woot(subdomain)
-  item = {:subdomain => subdomain,
-          :name => get_item_name(doc),
-          :price => get_item_price(doc),
-          :shipping_options => get_item_shipping_options(doc)}
+  build_item(subdomain, doc).to_json
+end
 
-  item.to_json
+def build_item(subdomain, doc)
+  {:subdomain => subdomain,
+   :name => get_item_name(doc),
+   :price => get_item_price(doc),
+   :shipping_options => get_item_shipping_options(doc)}
 end
 
 def scrape_woot(subdomain = 'www')
