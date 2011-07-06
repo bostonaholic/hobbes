@@ -1,14 +1,15 @@
 require 'sinatra'
 require 'open-uri'
 require 'nokogiri'
+require 'json'
 
-get '/' do
+get '/', :provides => 'json' do
   doc = scrape_woot
   @item = {:name => get_item_name(doc),
             :price => get_item_price(doc),
             :shipping_options => get_item_shipping_options(doc)}
 
-  "#{@item}"
+  @item.to_json
 end
 
 def scrape_woot
