@@ -4,24 +4,24 @@ require 'nokogiri'
 require 'json'
 
 get '/', :provides => 'json' do
-  doc = scrape_woot('www')
-  @item = {:name => get_item_name(doc),
+  doc = scrape_woot
+  item = {:name => get_item_name(doc),
             :price => get_item_price(doc),
             :shipping_options => get_item_shipping_options(doc)}
 
-  @item.to_json
+  item.to_json
 end
 
 get '/:subdomain', :provides => 'json' do |subdomain|
   doc = scrape_woot(subdomain)
-  @item = {:name => get_item_name(doc),
+  item = {:name => get_item_name(doc),
             :price => get_item_price(doc),
             :shipping_options => get_item_shipping_options(doc)}
 
-  @item.to_json
+  item.to_json
 end
 
-def scrape_woot(subdomain)
+def scrape_woot(subdomain = 'www')
   uri = "http://#{subdomain}.woot.com"
   Nokogiri::HTML(open(uri))
 end
