@@ -5,14 +5,17 @@ require 'json'
 
 get '/', :provides => 'json' do
   %w[www wine shirt sellout kids].collect do |subdomain|
-    doc = scrape_woot(subdomain)
-    build_item(subdomain, doc)
+    scrape_and_build_item(subdomain)
   end.to_json
 end
 
 get '/:subdomain', :provides => 'json' do |subdomain|
+  scrape_and_build_item(subdomain).to_json
+end
+
+def scrape_and_build_item(subdomain)
   doc = scrape_woot(subdomain)
-  build_item(subdomain, doc).to_json
+  build_item(subdomain, doc)
 end
 
 def build_item(subdomain, doc)
