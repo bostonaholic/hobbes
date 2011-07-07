@@ -21,23 +21,20 @@ Hosted on Heroku - http://deep-mist-953.heroku.com
 
 create a directory to store the project
 
-```
-$ mkdir hobbes
-
-$ cd hobbes
-```
+`$ mkdir hobbes`
+`$ cd hobbes`
 
 clone it
 
-```$ git clone git@github.com:bostonaholic/hobbes.git```
+`$ git clone git@github.com:bostonaholic/hobbes.git`
 
 install any missing bundles
 
-```$ bundle install```
+`$ bundle install`
 
 start up the sinatra server
 
-```$ ruby -rubygems hobbes.rb```
+`$ ruby -rubygems hobbes.rb`
 
 visit http://localhost:4567
 
