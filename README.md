@@ -22,6 +22,7 @@ Hosted on Heroku - http://deep-mist-953.heroku.com
 create a directory to store the project
 
 `$ mkdir hobbes`
+
 `$ cd hobbes`
 
 clone it
