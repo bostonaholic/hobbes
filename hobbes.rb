@@ -4,13 +4,17 @@ require 'nokogiri'
 require 'json'
 
 get '/', :provides => 'json' do
-  %w[www wine shirt sellout kids].collect do |subdomain|
-    scrape_and_build_item(subdomain)
-  end.to_json
+  all_woots.to_json
 end
 
 get '/:subdomain', :provides => 'json' do |subdomain|
   scrape_and_build_item(subdomain).to_json
+end
+
+def all_woots
+  %w[www wine shirt sellout kids].collect do |subdomain|
+    scrape_and_build_item(subdomain)
+  end
 end
 
 def scrape_and_build_item(subdomain)
