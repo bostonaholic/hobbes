@@ -4,7 +4,7 @@ A simple REST service to gather product info from woot! and its subdomains.
 
 Hosted on Heroku - http://deep-mist-953.heroku.com
 
-## Usage
+## Usage:Production
 
 1. output is in JSON
 2. visiting http://deep-mist-953.heroku.com will give you the product infos for the current day for all subdomains of woot!
@@ -16,3 +16,29 @@ Hosted on Heroku - http://deep-mist-953.heroku.com
 3. appending the subdomain of the site of your choice will give you only the product info for that subdomain
    * http://deep-mist-953.heroku.com/wine
    * etc.
+
+## Usage:Development
+
+create a directory to store the project
+
+```
+$ mkdir hobbes
+
+$ cd hobbes
+```
+
+clone it
+
+```$ git clone git@github.com:bostonaholic/hobbes.git```
+
+install any missing bundles
+
+```$ bundle install```
+
+start up the sinatra server
+
+```$ ruby -rubygems hobbes.rb```
+
+visit http://localhost:4567
+
+enjoy!
