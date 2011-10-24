@@ -1,11 +1,7 @@
 source 'http://rubygems.org'
 gem 'sinatra'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.4.7'
 
 group :test do
   gem 'rspec'
-end
-
-group :development do
-  gem "ruby-debug19"
 end
