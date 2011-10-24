@@ -19,9 +19,8 @@ describe WootPageScraper do
           wp.subdomain.should == 'wine'
           wp.name.should == 'Ty Caton 2009 TyTanium - Two Pack'
           wp.price.should == "$69.99"
+          wp.shipping_options.should include '$7.00 shipping'
         end
-
-        pending "test shipping options"
       end
     end
 
