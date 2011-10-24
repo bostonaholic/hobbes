@@ -13,8 +13,9 @@ describe WootPageScraper do
 
       describe "the returned WootPage" do
         it "has a fully constructed WootPage" do
-          wp = WootPageScraper.new('wine').scrape
-          wp.stub(:pull_raw_html => wine_woot_html)
+          wps = WootPageScraper.new('wine')
+          wps.stub(:pull_raw_html => wine_woot_html)
+          wp = wps.scrape
           wp.subdomain.should == 'wine'
           wp.name.should == 'Ty Caton 2009 TyTanium - Two Pack'
           wp.price.should == "$69.99"
