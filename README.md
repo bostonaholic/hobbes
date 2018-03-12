@@ -19,17 +19,11 @@ Hosted on Heroku - http://hobbes.heroku.com
 
 ## Usage:Development
 
-create a directory to store the project
-
-`$ mkdir hobbes`
-
-`$ cd hobbes`
-
-clone it
+clone the repo
 
 `$ git clone git@github.com:bostonaholic/hobbes.git`
 
-install any missing bundles
+install gems
 
 `$ bundle install`
 
